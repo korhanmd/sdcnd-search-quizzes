@@ -92,7 +92,6 @@ def search(grid,init,goal,cost):
         
         while init_flag == False:
             for i in range(len(delta)):
-                print '------------' + str(i) + '---------------'
                 x2 = x - delta[i][0]
                 y2 = y - delta[i][1]
                 if x2 >= 0 and x2 < len(grid) and y2 >=0 and y2 < len(grid[0]):
@@ -101,7 +100,6 @@ def search(grid,init,goal,cost):
                         path_x = x2
                         path_y = y2
                         delta_index = i
-                    print cur_cost
 
             expand[path_x][path_y] = delta_name[delta_index]
             x = path_x
