@@ -11,7 +11,7 @@
 # ----------
 
 grid = [[0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0],
         [0, 0, 1, 0, 1, 0],
         [0, 0, 1, 0, 1, 0],
         [0, 0, 1, 0, 1, 0]]
@@ -54,6 +54,9 @@ def search(grid,init,goal,cost):
             x = next[1]
             y = next[2]
             g = next[0]
+
+            expand[x][y] = step                    
+            step += 1
             
             if x == goal[0] and y == goal[1]:
                 found = True
@@ -66,10 +69,6 @@ def search(grid,init,goal,cost):
                             g2 = g + cost
                             open.append([g2, x2, y2])
                             closed[x2][y2] = 1
-
-        expand[x][y] = step                    
-        step += 1
-
     return expand
 
 print search(grid,init,goal,cost)
